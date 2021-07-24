@@ -1,5 +1,5 @@
 module.exports = {
-  root: true,
+  root: false, // set to true
   env: {
     node: true,
   },
@@ -8,7 +8,7 @@ module.exports = {
     '@vue/airbnb',
   ],
   parserOptions: {
-    parser: 'babel-eslint',
+    // parser: 'babel-eslint', // uncomment
   },
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
