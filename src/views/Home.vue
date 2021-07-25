@@ -1,42 +1,61 @@
 <template>
-    <div class="container">
-        <div class="limiter">
-            <main>
-                <div class="des">
-                    <p class="float float__one">CBS official</p>
-                    <p class="float float__two">Voting</p>
-                    <p class="float float__three">site</p>
-                    <div class="circle circle_one"></div>
-                    <div class="circle circle_two"></div>
-                    <div class="circle circle_three"></div>
-                    <div class="circle circle_four"></div>
-                    <div class="circle circle_five"></div>
-                </div>
-                <figure>
-                    <img src="./images/Saly-33.svg" width="380px" height="370px" alt="bob">
-                    <img src="./images/Saly-35.svg" alt="sally">
-                </figure>
-                <router-link type="button" to="/categories" class="cat_btn">View Categories <i class="feather-chevron-right"></i></router-link>
-
-            </main>
+  <div class="container">
+    <div class="limiter">
+      <main>
+        <div class="des">
+          <p class="float float__one">
+            CBS official
+          </p>
+          <p class="float float__two">
+            Voting
+          </p>
+          <p class="float float__three">
+            site
+          </p>
+          <div class="circle circle_one" />
+          <div class="circle circle_two" />
+          <div class="circle circle_three" />
+          <div class="circle circle_four" />
+          <div class="circle circle_five" />
         </div>
-        <Leads/>
+        <figure>
+          <img
+            :src="require('@/assets/images/Saly-33.svg')"
+            width="380px"
+            height="370px"
+            alt="bob"
+          >
+          <img
+            :src="require('@/assets/images/Saly-35.svg')"
+            alt="sally"
+          >
+        </figure>
+        <router-link
+          type="button"
+          to="/categories"
+          class="cat_btn"
+        >
+          View Categories <i class="feather-chevron-right" />
+        </router-link>
+      </main>
     </div>
+    <Leads />
+  </div>
 </template>
 
 <script>
-import axios from 'axios';
-import Leads from "../components/Leads.vue";
+import Leads from '../components/Leads.vue';
 
 export default {
-  title: "SLDB - Home Page",
+  title: 'CBS Vote - Home Page',
   components: {
-    Leads
+    Leads,
   },
 };
 </script>
 
-<style>
+<style scoped>
+@import '../assets/css/home.css';
 .cat_btn {
   cursor: pointer;
   position: absolute;

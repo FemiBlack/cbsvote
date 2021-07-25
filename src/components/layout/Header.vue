@@ -1,14 +1,33 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">Categories</router-link> |
-    <router-link to="/about">Register</router-link> |
-    <router-link to="/about">Login</router-link>
-  </div>
+    <nav>
+        <ul class="nav-list">
+            <router-link to="/"></router-link>
+            <router-link to="/categories"></router-link>
+            <router-link to="/login"></router-link>
+            <router-link v-if="isLoggedIn && role===2" to="/admin">Admin Panel</router-link>
+            <router-link v-if="isLoggedIn" @click="logout"></router-link>
+        </ul>
+    </nav>
 </template>
+<script>
+export default {
+    computed: {
+        ...mapGetters({ role: "StateUserRole" }),
+        isLoggedIn() {
+            return this.$store.getters.isAuthenticated;
+        },
+    },
+    methods: {
+        async logout() {
+            await this.$store.dispatch("LogOut");
+            this.$router.push("/");
+        },
+    }
+}
+</script>
 
 <style lang="scss">
-#nav {
+nav {
   padding: 30px;
 
   a {

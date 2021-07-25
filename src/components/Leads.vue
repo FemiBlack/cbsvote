@@ -1,7 +1,7 @@
 <template>
   <section id="leads">
     <h1>LEADS</h1>
-    <div class="lead-container">
+    <div class="lead-container" v-for="(lead,i) in leads" :key="i">
       <div class="lead-card">
         <div class="lead-img" style="height: 200px;" :style="lead.img"></div>
         <div class="lead-bottom">
@@ -25,7 +25,7 @@ export default {
   methods: {
     getLeads() {
       axios
-        .get('/leads')
+        .get('/api/leads')
         .then((response) => {
           const leads = response.data;
           leads.map((lead) => {
@@ -39,6 +39,7 @@ export default {
               img: `background-image: url(${lead.personImage});`,
               link: `/categories/${lead.category}`,
             });
+            return true;
           });
         })
         .catch(() => {
@@ -47,7 +48,7 @@ export default {
     },
   },
   created() {
-    this.GetLeads();
+    this.getLeads();
   },
 };
 </script>
