@@ -34,3 +34,4 @@ pnpm-debug.log*
 .editorconfig
 .env
 server/.env
+server/env
