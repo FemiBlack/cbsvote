@@ -45,7 +45,7 @@
         <option value="fashionablefemale">Most Fashionable(female)</option>
         <option value="sportspersonmale">Sportsperson(male)</option>
         <option value="sportspersonfemale">Sportsperson(female)</option>
-        <option value="innovativemale">Most Innovative(male)</option></select
+        <option value="innovativemale">Most Innovative(male)</option>
         <option value="innovativefemale">Most Innovative(female)</option></select
       ><br />
       <uploadcare publicKey="d0c1fab0b4eecafd5f0f" @success="onSuccess" @error="onError">
