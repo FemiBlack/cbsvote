@@ -10,7 +10,7 @@ module.exports = {
   parserOptions: {
     parser: 'babel-eslint', // uncomment
     sourceType: 'module',
-    // allowImportExportEverywhere: true
+    allowImportExportEverywhere: true,
   },
   rules: {
     'import/no-named-as-default': 0,
