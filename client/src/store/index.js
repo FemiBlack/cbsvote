@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
-// eslint-disable-next-line import/no-cycle
+// eslint-disable-next-line
 import auth from './modules/auth';
 
 Vue.use(Vuex);
