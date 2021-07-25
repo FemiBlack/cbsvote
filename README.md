@@ -1,8 +1,23 @@
-# cbs_voting_2021
+# Flask-Vue-SPA
+A platform for adding and pulling building surveys to a database
 
-## Project setup
+## Project setup(Front End | VueJS)
+
 ```
+cd ./client
 npm install
+```
+
+## Project setup(Back End | Flask)
+
+```
+cd ./server
+pip install -r requirements.txt
+```
+Run app in development mode
+```
+source ./env/bin/activate
+py -m app.py
 ```
 
 ### Compiles and hot-reloads for development
