@@ -1,18 +1,6 @@
 <template>
 <div>
-    <nav>
-        <div class="nav-list">
-            <div class="brand">
-                CBS
-            </div>
-            <ul>
-                <li><router-link to="/" style="color: white;background: #2604F6; padding: 5px 6px;border-radius: 10px;">Home</router-link></li>
-                <li><router-link to="/categories">Categories</router-link></li>
-                <li><router-link to="/login">Login</router-link></li>
-                <li><router-link to="/signup">Signup</router-link></li>
-            </ul>
-        </div>
-    </nav>
+    <NavbarSm />
   <div class="container">
     <div class="limiter">
       <main>
@@ -60,12 +48,14 @@
 
 <script>
 import Leads from '../components/Leads.vue';
+import NavbarSm from '../components/layout/NavbarSm.vue';
 import Swal from 'sweetalert2';
 
 export default {
   title: 'CBS Vote - Home Page',
   components: {
     Leads,
+    NavbarSm,
   },
   mounted(){
     Swal.fire('Man At Work!🔨🚧👷‍♂️', 'This site is currently under maintenance', 'info');
