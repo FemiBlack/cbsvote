@@ -16,9 +16,9 @@ load_dotenv()
 app = Flask(__name__, static_folder='../client/dist/', static_url_path='/')
 app.config.from_object(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-# DATABASE_URL = os.environ.get('DATABASE_URI')
-# app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
-app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/cbs_test'}
+DATABASE_URL = os.environ.get('DATABASE_URI')
+app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
+# app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/cbs_test'}
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
@@ -41,17 +41,6 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 def index():
     return app.send_static_file('index.html')
 
-def send_reset_email(user):
-    token = uuid.uuid4
-    msg = Message('CBS Vote Login Token', sender='femi.blvk@gmail.com', recipients=[user.email])
-    msg.body = f'''Here's your login token!, Happy Voting!:
-{token}
-
-If you did not make this request then simply ignore this email and no change would be applied
-    '''
-    mail.send(msg)
-    
-    return token
 
 if __name__ == '__main__':
-    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=True)
+    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=False)
