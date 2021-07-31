@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+	<!-- <link rel="stylesheet" href="./css/maian.css"> -->
+	<link rel="stylesheet" href="./style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/feather.css">
+    <title>Landmark University Login Page</title>
+    <style>
+        .wrap-login{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 20px;
+            /* grid-template-columns:minmax(1fr 1fr) */
+
+        }
+        .cat-border {
+            border: 1.5px solid #2604F6;
+            border-radius: 15px;
+            padding: 10px;
+            width: 281px;
+            display: flex;
+            height: 66px;
+            margin-bottom: 26px;
+            overflow-wrap: break-word;
+        }
+        .cat-name {
+            margin: auto;
+            font-family: Montserrat, sans-serif;
+            font-weight: bold;
+            /* font-size: 20px; */
+            /* line-height: 26px; */
+            /* or 40% */
+
+            text-align: center;
+
+        }
+        nav {
+            position: absolute;
+            padding-left: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+        }
+        @media only screen and (max-width:760px){
+            .wrap-login{
+                grid-template-columns: 1fr;
+            }
+        }
+        ul li a {
+            font-weight: bold;
+            color: black;
+        }
+        .cat-border:hover {
+            box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+        }
+        .active {
+            color: white;
+            background: #2604F6;
+            padding: 5px 6px;
+            border-radius: 10px;
+        }
+        .active:hover {
+            transform: translateY(20px);
+        }
+    </style>
+</head>
+<body>
+	<div class="limiter">
+		<section class="login-container">
+			<div class="side-overlay --sm" style="background-image: url('./images/bg.png');width: calc(100% - 900px);">
+                <figure>
+                    <img src="./images/Saly-37.svg" style="position: absolute;bottom: 0;left: 0;animation-duration: 0;" alt="ball_point">
+                </figure>
+			</div>
+            <nav>
+                <div class="brand">
+                    CBS
+                </div>
+                <ul style="display: flex; justify-content: space-around;width: 50%;">
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./cat2.html" class="active">Categories</a></li>
+                    <li><a href="./login.html">Login</a></li>
+                    <li><a href="./signup.html">Signup</a></li>
+                </ul>
+            </nav>
+        <main>
+            <h1 style="padding-left: 130px;padding-top: 100px;">Categories</h1>
+			<div class="wrap-login" style="padding-left: 130px;">
+                <div class="cat-border">
+                    <div class="cat-name">Most Fashionable (male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Most Fashionable (female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">CBS Next Gen(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">CBS Next Gen(female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Entrepreneur of the year(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Entrepreneur of the year(female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Face of CBS(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Face of CBS(female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Most Sociable(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Most Sociable(female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Sportsperson of the year(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Sportsperson of the year(female)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Most Innovative(male)</div>
+                </div>
+                <div class="cat-border">
+                    <div class="cat-name">Most Innovative(female)</div>
+                </div>
+			</div>
+        </main>
+		</div>
+	</div>
+    <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>

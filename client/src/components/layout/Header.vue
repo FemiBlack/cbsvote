@@ -5,7 +5,7 @@
             <router-link to="/categories"></router-link>
             <router-link to="/login"></router-link>
             <router-link v-if="isLoggedIn && role===2" to="/admin">Admin Panel</router-link>
-            <router-link v-if="isLoggedIn" @click="logout"></router-link>
+            <router-link v-if="isLoggedIn" @click="logout">Logout</router-link>
         </ul>
     </nav>
 </template>

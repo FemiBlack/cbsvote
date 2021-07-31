@@ -4,7 +4,8 @@
       <div
         class="side-overlay --sm"
         :style="
-          `background-image: url(${require('@/assets/images/bg.png')});width: calc(100% - 900px);`
+          `background-image: url(${require('@/assets/images/bg.png')});
+          width: calc(100% - 900px);z-index:2;`
         "
       >
         <figure>
@@ -15,20 +16,23 @@
           />
         </figure>
       </div>
-      <!-- <header>
-                <h3>Categories</h3>
-            </header> -->
-      <div class="wrap-login">
+      <NavSm />
+      <main>
+        <h1 style="padding-left: 130px;padding-top: 100px;">Categories</h1>
+			  <div class="wrap-login" style="padding-left: 130px;">
           <div v-for="(category, name) in categories" :key="name"  class="cat-border">
-        <router-link :to="{name: 'CatType', params: {cat_type: name}}" class="cat-name">
-            {{ category }}
-        </router-link>
+            <router-link :to="{name: 'CatType', params: {cat_type: name}}" class="cat-name">
+                {{ category }}
+            </router-link>
+          </div>
         </div>
-      </div>
+      </main>
     </section>
   </div>
 </template>
 <script>
+import NavSm from '@/components/layout/NavbarSm.vue';
+
 const categories = {
   fashionablemale: 'Most Fashionable(male)',
   fashionablefemale: 'Most Fashionable(female)',
@@ -40,7 +44,7 @@ const categories = {
   facefemale: 'Face of CBS(female)',
   sociablemale: 'Most Sociable(male)',
   sociablefemale: 'Most Sociable(female)',
-  sportsperson: 'Sportsperson of the year(male)',
+  sportspersonmale: 'Sportsperson of the year(male)',
   sportspersonfemale: 'Sportsperson of the year(female)',
   innovativemale: 'Most Innovative(male)',
   innovativefemale: 'Most Innovative(female)',
@@ -54,25 +58,51 @@ export default {
       categories,
     };
   },
+  components: {
+    NavSm,
+  },
 };
 </script>
 <style scoped>
+main h1::after {
+  content: "";
+  position: absolute;
+  background-color: #000;
+  height: 0.3125rem;
+  width: 6.25rem;
+  bottom: 0;
+  left: 0;
+  margin-left: 3.75rem;
+}
+nav{
+  background:white;
+  z-index: 1;
+}
 .wrap-login{
-    display: grid;
+  display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 20px;
     /* grid-template-columns:minmax(1fr 1fr) */
 
 }
 .cat-border {
-    border: 1.5px solid #2604F6;
-    border-radius: 15px;
-    padding: 10px;
-    width: 281px;
-    display: flex;
-    height: 66px;
-    margin-bottom: 26px;
-    overflow-wrap: break-word;
+  border: 1.5px solid #2604F6;
+  border-radius: 15px;
+  padding: 10px;
+  width: 281px;
+  display: flex;
+  height: 66px;
+  margin-bottom: 26px;
+  overflow-wrap: break-word;
+  transition: all .3s ease-in;
+}
+.cat-border a{
+  color: rgb(54, 52, 52);
+}
+.cat-border:hover {
+    /* box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25); */
+  	box-shadow: 0rem .25rem .625rem .1875rem rgba(0, 0, 0, 0.11);
+
 }
 .cat-name {
     margin: auto;

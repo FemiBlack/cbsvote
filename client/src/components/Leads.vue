@@ -1,12 +1,19 @@
 <template>
   <section id="leads">
     <h1>LEADS</h1>
-    <div class="lead-container" v-for="(lead,i) in leads" :key="i">
-      <div class="lead-card">
-        <div class="lead-img" style="height: 200px;" :style="lead.img"></div>
+    <div class="lead-container">
+      <div class="lead-card" v-for="(lead,i) in leads" :key="i">
+        <div class="lead-img" style="height: 200px;"
+        :style="{ backgroundImage: 'url(' +lead.img+')' }"></div>
         <div class="lead-bottom">
           <span class="lead-name">{{ lead.name }}</span>
-          <span class="lead-category">{{ lead.category }}</span>
+          <router-link tag="span"
+          :to="{name: 'CatType', params: { cat_type: lead.category.name }}"
+          class="lead-category"
+          style="cursor:pointer;">
+            {{ catTypes[lead.category.name] }}
+          </router-link>
+          <span class="lead-category">Leading by {{ lead.category.votes }} votes</span>
         </div>
       </div>
     </div>
@@ -16,35 +23,74 @@
 <script>
 import axios from 'axios';
 
+const catTypes = Object.freeze({
+  fashionablemale: 'Most Fashionable(male)',
+  fashionablefemale: 'Most Fashionable(female)',
+  nextgenmale: 'CBS Next Gen(male)',
+  nextgenfemale: 'CBS Next Gen(female)',
+  entreprenuermale: 'Entrepreneur of the year(male)',
+  entreprenuerfemale: 'Entrepreneur of the year(female)',
+  facemale: 'Face of CBS(male)',
+  facefemale: 'Face of CBS(female)',
+  sociablemale: 'Most Sociable(male)',
+  sociablefemale: 'Most Sociable(female)',
+  sportspersonmale: 'Sportsperson of the year(male)',
+  sportspersonfemale: 'Sportsperson of the year(female)',
+  innovativemale: 'Most Innovative(male)',
+  innovativefemale: 'Most Innovative(female)',
+});
+
 export default {
   data() {
     return {
       leads: [],
+      catTypes,
+      count: 0,
     };
   },
+  // computed: {
+  //   const max = this.leads.category.reduce((prev,curr) => (prev.votes > curr.votes) ? prev : curr, null)
+  //   return max;
+  // },
   methods: {
+    // getCatVote(catItem){
+    //   var keys = Object.keys(this.catTypes);
+    //   var currCat = catItem.find(x => x.name == keys[this.count]);
+    //   console.log(this.count, currCat);
+    //   // this.count += 1;
+    //   return currCat.votes;
+    // },
+    // getCatName(catItem){
+    //   var keys = Object.keys(this.catTypes);
+    //   var currCat = catItem.find(x => x.name == keys[this.count]);
+    //   // console.log(this.count, currCat);
+    //   this.count += 1;
+    //   return currCat.name;
+    // },
     getLeads() {
       axios
         .get('/api/leads')
         .then((response) => {
-          const leads = response.data;
-          leads.map((lead) => {
+          let count = this.count;
+          const leadRes = response.data;
+          const keys = Object.keys(this.catTypes);
+
+          // console.log(JSON.parse(leadRes[0]))
+          leadRes.map(lead => {
             this.leads.push({
-              id: leads.id,
-              personId: lead.personId,
-              reg_no: lead.reg_no,
-              person: lead.person,
-              category: lead.category,
-              likes: lead.likes,
-              img: `background-image: url(${lead.personImage});`,
-              link: `/categories/${lead.category}`,
+              id: JSON.parse(lead)._id.$oid,
+              name: JSON.parse(lead).name,
+              category: JSON.parse(lead).category.find(x => x.name === keys[count]),
+              img: JSON.parse(lead.img),
             });
+            count+=1;
             return true;
           });
         })
-        .catch(() => {
-          console.log('error');
+        .catch((error) => {
+          console.log('error: '+ error);
         });
+        console.log(this.count)
     },
   },
   created() {
@@ -81,7 +127,7 @@ export default {
   display: grid;
   /* grid-template-columns: repeat(auto-fill, minmax(calc(10% + 7.5rem), 1fr)); */
   /* grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr)); */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, 350px);
   gap: 1.25rem;
 }
 .lead-card {

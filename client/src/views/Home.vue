@@ -1,4 +1,18 @@
 <template>
+<div>
+    <nav>
+        <div class="nav-list">
+            <div class="brand">
+                CBS
+            </div>
+            <ul>
+                <li><router-link to="/" style="color: white;background: #2604F6; padding: 5px 6px;border-radius: 10px;">Home</router-link></li>
+                <li><router-link to="/categories">Categories</router-link></li>
+                <li><router-link to="/login">Login</router-link></li>
+                <li><router-link to="/signup">Signup</router-link></li>
+            </ul>
+        </div>
+    </nav>
   <div class="container">
     <div class="limiter">
       <main>
@@ -31,7 +45,7 @@
           >
         </figure>
         <router-link
-          type="button"
+          tag="button"
           to="/categories"
           class="cat_btn"
         >
@@ -39,23 +53,30 @@
         </router-link>
       </main>
     </div>
-    <Leads />
+  </div>
+  <Leads />
   </div>
 </template>
 
 <script>
 import Leads from '../components/Leads.vue';
+import Swal from 'sweetalert2';
 
 export default {
   title: 'CBS Vote - Home Page',
   components: {
     Leads,
   },
+  mounted(){
+    Swal.fire('Man At Work!🔨🚧👷‍♂️', 'This site is currently under maintenance', 'info');
+  }
 };
 </script>
 
+<style scoped src="../assets/css/styles.css"></style>
+<style scoped src="../assets/css/home.css"></style>
 <style scoped>
-@import '../assets/css/home.css';
+
 .cat_btn {
   cursor: pointer;
   position: absolute;
@@ -110,6 +131,37 @@ figure {
   }
   .float__one::after {
     width: 14em;
+  }
+  nav {
+    padding: 10px;
+    width:100%;
+    height: 10vh;
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    overflow: unset;
+    background: transparent;
+  }
+  .brand {
+      font-weight: bold;
+  }
+  .nav-list {
+      flex-direction: row;
+  }
+  .nav-list ul{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 50%;
+  }
+  .nav-list ul li a{
+      color: #000;
+      font-size: 14px;
+  }
+  .nav-list ul li::after{
+      content: unset;
   }
 }
 </style>

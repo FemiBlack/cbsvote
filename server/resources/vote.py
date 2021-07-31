@@ -1,4 +1,4 @@
-from flask import Response, request
+from flask import Response, request, jsonify
 from database.models import Vote, Nominee, User
 from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_restful import Resource
@@ -17,13 +17,17 @@ class VotingApi(Resource):
             body = request.get_json()
             vote = Vote(**body)
             vote.save()
-
-            nominee = Nominee.objects.get(id=request.args['nominee_id'],category__names=request.args['category'])
-            nominee.update(inc__category__S__vote=1)
-            nominee.save()
+            
+            data = request.get_json()
+            nominee = Nominee.objects(id=data['nominee_id'],category__name=data['category'])
+            # print(nominee)
+            # nominee.update(inc__category__S__votes=1)
+            nominee.update_one(__raw__={'$inc': {'category.$.votes':1}},
+            )
+            # nominee.save()
 
             user = User.objects.get(id=user_id)
-            user.update(push__voted_for=request.args['category'])
+            user.update(push__voted_for=data['category'])
             user.save()
             id = vote.id
             return {'id':str(id)}, 200
@@ -37,7 +41,18 @@ class VotingApi(Resource):
 class GetCategoryApi(Resource):
     def get(self, type):
         try:
-            users = Nominee.objects.get(category=type).to_json()
+            users = Nominee.objects(category__name=type).to_json()
+            return Response(users, mimetype="application/json", status=200)
+        except DoesNotExist:
+            raise MovieNotExistsError
+        except Exception:
+            raise InternalServerError
+
+class GetUserVoteApi(Resource):
+    @jwt_required()
+    def get(self, id):
+        try:
+            users = User.objects(id=id).to_json()
             return Response(users, mimetype="application/json", status=200)
         except DoesNotExist:
             raise MovieNotExistsError
@@ -46,10 +61,33 @@ class GetCategoryApi(Resource):
 
 class GetLeadsApi(Resource):
     def get(self):
+        # nominee = Nominee.objects(category__name="facemale").to_json()
         # get largest per category
-        cats = ['freshman',"poppy"]
+        cats = [
+            'fashionablemale',
+            'fashionablefemale',
+            'nextgenmale',
+            'nextgenfemale',
+            'entreprenuermale',
+            'entreprenuerfemale',
+            'facemale',
+            'facefemale',
+            'sociablemale',
+            'sociablefemale',
+            'sportspersonmale',
+            'sportspersonfemale',
+            'innovativemale',
+            'innovativefemale',
+        ]
         leads = []
         for cat in cats:
-            nominee = Nominee.objects(category__name=cat).order_by('category_S_votes').first()         
-            leads.append(nominee)
-        return Response(leads, mimetype="application/json", status=200)
+            print(cat)
+            try:
+                nominee = Nominee.objects(category__name=cat).order_by('category__S__votes').first().to_json()
+                # print(json.loads(nominee))
+                leads.append(nominee)
+                print(json.dumps(leads))
+            except AttributeError:
+                continue
+        return Response(json.dumps(leads), mimetype="application/json", status=200)
+        # return jsonify(leads=leads)

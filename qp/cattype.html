@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <link rel="stylesheet" href="./css/font-awesome.min.css"> -->
+	<!-- <link rel="stylesheet" href="./css/maian.css"> -->
+	<link rel="stylesheet" href="./style.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/feather.css">
+    <title>Landmark University Login Page</title>
+    <style>
+        .lead-img {
+            background-color: #777;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .lead-container {
+            justify-items: center;
+            font-family: Poppins;
+            padding: 3.75rem;
+            display: grid;
+            /* grid-template-columns: repeat(auto-fill, minmax(calc(10% + 7.5rem), 1fr)); */
+            /* grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr)); */
+            grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+            gap: 1.25rem;
+        }
+        .lead-card {
+            height: 18.75rem;
+            width: 15.625rem;
+            /* height: 267px; */
+            /* border: .0625rem solid #777; */
+            box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+        }
+        .lead-category {
+            /* font-style: normal;
+            font-weight: normal;
+            line-height: 27px; */
+            font-size: 14px;
+            display: block;
+            color: #4D4D4D;
+        }
+        .lead-bottom {
+            font-size: 1rem;
+            padding: 1.25rem;
+        }
+        .wrap-login{
+            /* justify-self: center; */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            column-gap: 20px;
+            row-gap: 20px;
+            background: transparent;
+            /* grid-template-columns:minmax(1fr 1fr) */
+            padding: 50px;
+        }
+        .heart {
+            /* background-color: var(--blueTheme); */
+            padding: 2px;
+            /* color: white; */
+            font-size: 14px;
+            border-radius: 8px;
+            width: 70px;
+        }
+        nav {
+            position: absolute;
+            padding-left: 50px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+        }
+        ul li a {
+            font-weight: bold;
+            color: black;
+        }
+        @media only screen and (max-width:760px){
+            .wrap-login{
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+	<div class="limiter">
+		<section class="login-container">
+			<div class="side-overlay --sm" style="background-image: url('./images/bg.png');width: calc(100% - 900px);">
+                <figure>
+                    <!-- <img src="./images/Saly-37.svg" style="position: absolute;bottom: 0;left: 0;animation-duration: 0;" alt="ball_point"> -->
+                </figure>
+			</div>
+            <nav>
+                    <div class="brand">
+                        CBS
+                    </div>
+                    <ul style="display: flex; justify-content: space-around;width: 50%;">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="./cat2.html">Categories</a></li>
+                        <li><a href="./login.html">Login</a></li>
+                        <li><a href="./signup.html">Signup</a></li>
+                    </ul>
+                </nav>
+            <main>
+                <h1 style="padding-left: 50px;padding-top: 100px;">Most Fashionable (male)</h1>
+                <div class="wrap-login">
+                    <div class="lead-card">
+                        <div class="lead-img" style="height: 200px;background-image: url('./images/recent/Interel/layefa\ \(enterpreneur\).JPG')">
+                        </div>
+                        <div class="lead-bottom">
+                            <span class="lead-name">Layefa</span><br/>
+                            <span class="lead-category">International Relations</span>
+                            <div class="heart">
+                                <i class="feather-heart"></i>
+                                <span>Vote</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lead-card">
+                        <div class="lead-img" style="height: 200px;background-image: url('./images/recent/accounting/Ude\ lenient\ \(sociable\).JPG')">
+                        </div>
+                        <div class="lead-bottom">
+                            <span class="lead-name">Ude Lenient (25)</span>
+                            <span class="lead-category">Most Sociable</span>
+                        </div>
+                    </div>
+                    <div class="lead-card">
+                        <div class="lead-img" style="height: 200px;background-image: url('./images/recent/BFN/Abigal\(most\ fashionable\)\ female\ .JPG')">
+                        </div>
+                        <div class="lead-bottom">
+                            <span class="lead-name">Abigail (25)</span>
+                            <span class="lead-category">Most Fashionable</span>
+                        </div>
+                    </div>
+                    <div class="lead-card">
+                        <div class="lead-img" style="height: 200px;background-image: url('./images/recent/eco/Hardy\ Yg\ \(most\ inovaitive\ male\ \).JPG')">
+                        </div>
+                        <div class="lead-bottom">
+                            <span class="lead-name">Hardy Yg (25)</span>
+                            <span class="lead-category">Most Innovative</span>
+                        </div>
+                    </div>
+                </div>
+            </main>
+		</div>
+	</div>
+    <script src="js/jquery-3.2.1.min.js" charset="utf-8"></script>
+    <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>

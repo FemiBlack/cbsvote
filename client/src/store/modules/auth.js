@@ -2,22 +2,24 @@ import axios from 'axios';
 import 'sweetalert2/dist/sweetalert2.min.css';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
-  user: null,
-  role: null,
+  user: {},
   leads: null,
 };
 const getters = {
   isAuthenticated: (state) => !!state.user,
   StateLeads: (state) => state.leads,
   StateUser: (state) => state.user,
-  StateUserRole: (state) => state.role,
 };
 const actions = {
   async LogIn({ commit }, payload) {
     localStorage.setItem('token', payload.res.data.token);
     const role = parseInt(payload.res.data.role, 10);
-    await commit('setUser', payload.User.email);
-    await commit('setUserRole', role);
+    const userData = {
+      'id': payload.res.data.id,
+      'email': payload.User.email,
+      'role': role,
+    };
+    await commit('setUser', userData);
   },
   async CreateNominee({ dispatch }, nominee) {
     await axios.post('/api/addnominee', nominee, {
@@ -25,10 +27,10 @@ const actions = {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     });
-    await dispatch('GetAllHouses');
+    await dispatch('GetLeads');
   },
   async UpdateNominee({ dispatch }, { payload, nomineeID }) {
-    await axios.put(`/api/building/${nomineeID}`, payload, {
+    await axios.put(`/api/addnominee/${nomineeID}`, payload, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
@@ -36,7 +38,7 @@ const actions = {
     await dispatch('GetUserHouses');
   },
   async GetCategory({ commit }, houseID) {
-    const response = await axios.get(`/api/building/${houseID}`);
+    const response = await axios.get(`/api/category/${houseID}`);
     commit('setHouse', response.data);
   },
   async GetLeads({ commit }) {
@@ -58,11 +60,8 @@ const actions = {
   },
 };
 const mutations = {
-  setUser(state, username) {
-    state.user = username;
-  },
-  setUserRole(state, role) {
-    state.role = role;
+  setUser(state, payload) {
+    state.user = payload;
   },
   setHouse(state, house) {
     state.house = house;
@@ -75,7 +74,7 @@ const mutations = {
   },
   logout(state) {
     state.user = null;
-    state.houses = null;
+    // state.houses = null;
   },
 };
 

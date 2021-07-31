@@ -1,7 +1,7 @@
 <template>
   <div class="limiter">
     <section class="login-container">
-      <div class="side-overlay --sm">
+      <div class="side-overlay --sm" style="z-index:2;">
         <figure style="position: absolute;bottom: 0;right: -40px;">
           <img
             :src="require(`@/assets/images/Saly-1.svg`)"
@@ -10,7 +10,8 @@
           >
         </figure>
       </div>
-
+      <NavSm />
+      <main>
       <div class="wrap-login">
         <form
           class="login100-form validate-form"
@@ -81,6 +82,7 @@
           </div>
         </form>
       </div>
+      </main>
     </section>
   </div>
 </template>
@@ -88,6 +90,7 @@
 <script>
 import { mapActions } from 'vuex';
 import Swal from 'sweetalert2';
+import NavSm from '@/components/layout/NavbarSm.vue';
 import axios from 'axios';
 
 export default {
@@ -101,24 +104,30 @@ export default {
       login: 'Login',
     };
   },
+  components: {
+    NavSm,
+  },
   methods: {
     ...mapActions(['LogIn']),
     async handleLogin() {
       this.login = 'Logging In...';
-      this.isActive = false;
+      this.isActive = true;
       const User = {
         email: this.email,
         password: this.password,
       };
       const re = /[a-zA-Z.]+@[lmu.edu.ng]/;
-      if (!re.test(this.email)) {
-        Swal.fire('Oops', 'You need to put a valid webmail', 'warning');
+      if(this.email == '' || this.password == ''){
+        Swal.fire('😒', 'Cant leave blank fields!', 'warning');
         this.login = 'Login';
-        this.isActive = true;
+        this.isActive = false;
+      } else if (!re.test(this.email)) {
+        Swal.fire('🤔', 'Your webmail seems weird', 'warning');
+        this.login = 'Login';
+        this.isActive = false;
       } else {
         await axios.post('/api/auth/login', User)
           .then((res) => {
-            console.log(res.data);
             Swal.fire('Success', 'Logged In', 'success');
             const payload = { res, User };
             this.LogIn(payload);
@@ -128,8 +137,10 @@ export default {
           })
           .catch((error) => {
             const result = error.response.data;
-            if (error.response.status !== 400) {
-              Swal.fire('Oops!', `${result.error}`, 'warning');
+            if (error.response.status === 404) {
+              Swal.fire('🛸!', 'Seems like the server is down!', 'warning');
+            } else if(error.response.status !== 400) {
+              Swal.fire('Oops', `${result.error}`, 'warning');
             } else {
               Swal.fire('Oops', `${result.error}`, 'warning');
             }
@@ -142,4 +153,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+nav{
+  background:white;
+  z-index: 1;
+}
+</style>

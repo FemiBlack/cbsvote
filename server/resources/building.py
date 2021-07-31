@@ -46,5 +46,9 @@ class GetCategoryApi(Resource):
 class GetLeadsApi(Resource):
     def get(self):
         # get largest per category
-        leads = Vote.objects().to_json()
+        leads = []
+        for i in range(14):
+            x = User.objects().order_by(f'like[{i}]')
+            x= x[0]
+            leads.append(x)
         return Response(leads, mimetype="application/json", status=200)

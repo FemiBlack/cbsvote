@@ -1,5 +1,5 @@
 import Vue from 'vue';
-// import axios from 'axios';
+import axios from 'axios';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 import titleMixin from './mixins/titleMixin';
@@ -12,7 +12,7 @@ import App from './App.vue';
 
 Vue.mixin(titleMixin);
 
-// axios.defaults.baseURL = 'http://127.0.0.1:8000/';
+axios.defaults.baseURL = 'http://127.0.0.1:8000/';
 
 Vue.config.productionTip = false;
 

@@ -1,7 +1,7 @@
 <template>
   <div class="limiter">
   <section class="login-container">
-    <div class="side-overlay --sm">
+    <div class="side-overlay --sm" style="z-index:2;">
       <figure style="position: absolute;bottom: 0;right: -40px;left:0;top:0;">
         <img
           :src="require(`@/assets/images/saly-28.svg`)"
@@ -15,7 +15,8 @@
         >
       </figure>
     </div>
-
+    <NavSm />
+    <main>
     <div class="wrap-login">
       <form
         class="login100-form validate-form"
@@ -72,12 +73,14 @@
         </div>
       </form>
     </div>
+    </main>
   </section>
   </div>
 </template>
 
 <script>
 import Swal from 'sweetalert2';
+import NavSm from '@/components/layout/NavbarSm.vue';
 import axios from 'axios';
 
 export default {
@@ -90,6 +93,9 @@ export default {
       signup: 'Sign Up',
       isActive: false,
     };
+  },
+  components: {
+    NavSm,
   },
   methods: {
     async Register() {
@@ -113,7 +119,9 @@ export default {
           })
           .catch((error) => {
             const result = error.response.data;
-            if (error.response.status !== 400) {
+            if (error.response.status === 404) {
+              Swal.fire('Oops!', 'Seems like the server is down!', 'warning');
+            } else if (error.response.status !== 400) {
               Swal.fire('Hey!', `${result.message}`, 'info');
             } else {
               Swal.fire('Oops', `${result.message}`, 'warning');
@@ -130,4 +138,9 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+nav{
+  background:white;
+  z-index: 1;
+}
+</style>

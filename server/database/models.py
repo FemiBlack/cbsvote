@@ -10,13 +10,18 @@ class Vote(db.Document):
 class Nominee(db.Document):
     name = db.StringField(required=True)
     category = db.ListField(db.DictField(required=True)) #{'name':'freshest',vote:0}
-    reg_no = db.IntField(required=True)
+    department = db.StringField(required=True)
     img = db.StringField()
-
-class User(db.Document):
+ACCESS = {
+    'user': 1,
+    'admin': 2
+}
+class User(db.DynamicDocument):
     email = db.EmailField(required=True, unique=True)
     password = db.StringField(required=True, min_length=6)
     voted_for = db.ListField(db.StringField())
+    role = db.IntField(default=ACCESS['user'])
+
 
     def hash_password(self):
         self.password = generate_password_hash(self.password).decode('utf8')

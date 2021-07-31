@@ -22,6 +22,8 @@ export default {
 </script>
 <style lang="scss">
 @import './assets/css/style.css';
+@import './assets/css/feather.css';
+
 // #app {
 //   font-family: Spartan, Poppins, Arial, sans-serif;
 //   -webkit-font-smoothing: antialiased;
