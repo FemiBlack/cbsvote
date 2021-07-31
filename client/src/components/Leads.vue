@@ -1,7 +1,7 @@
 <template>
   <section id="leads">
     <h1>LEADS</h1>
-    <div class="lead-container">
+    <div class="lead-container" v-if="leads[0]">
       <div class="lead-card" v-for="(lead,i) in leads" :key="i">
         <div class="lead-img" style="height: 200px;"
         :style="{ backgroundImage: 'url(' +lead.img+')' }"></div>
@@ -16,6 +16,9 @@
           <span class="lead-category">Leading by {{ lead.category.votes }} votes</span>
         </div>
       </div>
+    </div>
+    <div class="lead-container" v-else>
+      <p>There are currently no users leading...</p>
     </div>
   </section>
 </template>

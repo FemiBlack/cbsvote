@@ -20,7 +20,7 @@
         <h1 style="padding-left: 50px;padding-top: 100px;background:white;">
         {{ catTypes[cat_type].toUpperCase() }}
         </h1>
-        <div class="wrap-login">
+        <div class="wrap-login" v-if="nominees[0]">
           <div class="lead-card" v-for="(nominee,k) in nominees" :key="k" @dblclick="Vote(nominee.id,nominee.name)">
             <div class="lead-img"
             :style="{ backgroundImage: 'url(' +nominee.img+')' }"></div>
@@ -36,6 +36,9 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="lead-container" v-if="nominees[0]">
+          <p>No nominees have been added under this category...</p>
         </div>
       </main>
     </section>
