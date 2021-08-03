@@ -1,4 +1,4 @@
-# Flask-Vue-SPA
+# CBS Vote 2021
 A platform for adding and pulling building surveys to a database
 
 ## Project setup(Front End | VueJS)
