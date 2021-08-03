@@ -43,4 +43,4 @@ def index():
 
 
 if __name__ == '__main__':
-    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=True)
+    app.run(port=(os.getenv('PORT') if os.getenv('PORT') else 8000), debug=False)
