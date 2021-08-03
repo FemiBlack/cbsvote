@@ -142,7 +142,7 @@ export default {
             } else if(error.response.status !== 400) {
               Swal.fire('Oops', `${result.message}`, 'warning');
             } else {
-              Swal.fire('?', 'Something's wrong try again', 'warning');
+              Swal.fire('?', 'Something\'s wrong try again', 'warning');
             }
             this.login = 'Login';
             this.isActive = false;
