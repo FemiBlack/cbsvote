@@ -140,9 +140,9 @@ export default {
             if (error.response.status === 404) {
               Swal.fire('🛸!', 'Seems like the server is down!', 'warning');
             } else if(error.response.status !== 400) {
-              Swal.fire('Oops', `${result.error}`, 'warning');
+              Swal.fire('Oops', `${result.message}`, 'warning');
             } else {
-              Swal.fire('Oops', `${result.error}`, 'warning');
+              Swal.fire('?', 'Something's wrong try again', 'warning');
             }
             this.login = 'Login';
             this.isActive = false;
