@@ -18,17 +18,17 @@ app.config.from_object(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 DATABASE_URL = os.environ.get('DATABASE_URI')
 app.config['MONGODB_SETTINGS'] = {'host':  DATABASE_URL}
-# app.config['MONGODB_SETTINGS'] = {'host':  'mongodb://127.0.0.1/cbs_test'}
 
 api = Api(app, errors=errors)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 app.config['MAIL_SERVER'] = os.environ.get('MAIL_SERVER')
-app.config['MAIL_PORT'] = 465
+app.config['MAIL_PORT'] = 587
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
-app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+app.config['MAIL_PASSWORD'] = os.environ.get('SENDGRID_API_KEY')
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_DEFAULT_SENDER'] = os.environ.get('MAIL_DEFAULT_SENDER')
 mail = Mail(app)
 
 initialize_db(app)
