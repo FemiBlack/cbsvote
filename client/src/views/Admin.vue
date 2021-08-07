@@ -132,7 +132,7 @@ export default {
         } else {
           add = {
             name: name,
-            category: [{name: this.category[0], votes: 0}, {name: this.category[1], votes: 0}],
+            category: [{name: this.category[0], votes: 0}],
             department: this.department,
             img: this.imageSelected,
           };
