@@ -31,7 +31,7 @@
         <div class="wrap-input100 validate-input animate__animated animate__bounceInDown">
           <i class="feather-globe icon" />
       <select name="department" v-model="department" id="department" class="input100">
-        <option value="">Choose Department</option>
+        <option disabled value="">Choose Department</option>
         <option value="interel">International Relations</option>
         <option value="accounting">Accounting</option>
         <option value="bfn">Banking and Finance</option>
@@ -43,8 +43,8 @@
         </div>
         <div class="wrap-input100 validate-input animate__animated animate__bounceInDown">
           <i class="feather-layers icon" />
-      <select name="categories" v-model="category" id="categories" class="input100">
-        <option value="">Choose Category</option>
+      <select name="categories" v-model="category" id="categories" class="input100" multiple>
+        <option disabled value="">Choose Category</option>
         <option value="facemale">Face of CBS(male)</option>
         <option value="facefemale">Face of CBS(female)</option>
         <option value="sociablemale">Most Sociable(male)</option>
@@ -61,6 +61,7 @@
         <option value="innovativefemale">Most Innovative(female)</option></select
       >
         </div>
+        {{ category }}
       <uploadcare publicKey="d0c1fab0b4eecafd5f0f" @success="onSuccess" @error="onError">
         <button class="input100">Pick an Image</button>
       </uploadcare>
@@ -90,7 +91,7 @@ export default {
     return {
       name: '',
       department: '',
-      category: '',
+      category: [],
       disabled: false,
       nominate: 'Nominate',
       imageSelected: null,
