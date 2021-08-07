@@ -130,9 +130,13 @@ export default {
         if (this.imageSelected == null) {
           Swal.fire('Hey', `Please upload an image for ${name}`, 'warning');
         } else {
+          let categ = [];
+          for(let i = 0; i < this.category.length; i++){ 
+            categ.push({'name': this.category[i], 'votes': 0});
+          }
           add = {
             name: name,
-            category: [{name: this.category[0], votes: 0}],
+            category: categ,
             department: this.department,
             img: this.imageSelected,
           };
@@ -148,9 +152,9 @@ export default {
               this.nominate = 'Nominate';
               const result = res.data;
               if (result.id) {
-                Swal.fire('👌👌', `${result.success.success_text}`, 'success');
+                Swal.fire('👌👌', 'Nominee successfully added', 'success');
                 this.name = '';
-                this.category = '';
+                this.category = [];
                 this.imageSelected = null;
                 localStorage.removeItem('personImage');
                 this.imagePreview = '';
