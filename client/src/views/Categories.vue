@@ -4,7 +4,7 @@
       <div
         class="side-overlay --sm"
         :style="
-          `background-image: url(${require('@/assets/images/bg.png')});
+          `background-image: url(${require('@/assets/images/nathan-anderson-9o-VrJSwGuw-unsplash.jpg')});
           width: calc(100% - 900px);z-index:2;`
         "
       >
