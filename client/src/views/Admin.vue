@@ -41,6 +41,7 @@
         <option value="soc">Sociology</option></select
       >
         </div>
+        <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
         <div class="wrap-input100 validate-input animate__animated animate__bounceInDown">
           <i class="feather-layers icon" />
       <select name="categories" v-model="category" id="categories" class="input100" multiple>
