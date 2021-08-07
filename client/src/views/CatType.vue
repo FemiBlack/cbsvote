@@ -37,7 +37,7 @@
             </div>
           </div>
         </div>
-        <div class="lead-container" v-if="nominees[0]">
+        <div class="lead-container" v-if="!nominees[0]">
           <p>No nominees have been added under this category...</p>
         </div>
       </main>
