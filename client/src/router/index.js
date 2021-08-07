@@ -32,6 +32,7 @@ const routes = [
     name: 'Admin',
     component: () => import(/* webpackChunkName: "Admin" */ '@/views/Admin.vue'),
     beforeEnter: (to, from, next) => {
+      console.log(store.state.auth.role);
       if (store.state.auth.role === 2) {
         next();
         return;
