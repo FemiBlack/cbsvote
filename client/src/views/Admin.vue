@@ -44,7 +44,7 @@
         <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
         <div class="wrap-input100 validate-input animate__animated animate__bounceInDown">
           <i class="feather-layers icon" />
-      <select name="categories" v-model="category" id="categories" class="input100" multiple>
+      <select name="categories" v-model="category" id="categories" class="input100" multiple size="10">
         <option disabled value="">Choose Category</option>
         <option value="facemale">Face of CBS(male)</option>
         <option value="facefemale">Face of CBS(female)</option>
