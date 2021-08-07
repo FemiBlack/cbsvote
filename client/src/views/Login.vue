@@ -140,7 +140,7 @@ export default {
             if (error.response.status === 404) {
               Swal.fire('🛸!', 'Seems like the server is down!', 'warning');
             } else if(error.response.status !== 400) {
-              Swal.fire('Oops', `${result.message}`, 'warning');
+              Swal.fire('Oops', `${result.message || result.error}`, 'warning');
             } else {
               Swal.fire('?', 'Something\'s wrong try again', 'warning');
             }
