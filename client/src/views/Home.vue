@@ -173,5 +173,11 @@ figure {
   .nav-list ul li::after{
       content: unset;
   }
+  #leads h1{
+    padding-left: 3.75rem;
+  }
+  #leads h1::after{
+    margin-left: 0.75rem;
+  }
 }
 </style>
