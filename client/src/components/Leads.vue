@@ -157,7 +157,7 @@ export default {
     padding-left: 3.75rem;
   }
   #leads h1::after{
-    margin-left: 0.75rem;
+    margin-left: 3.75rem;
   }
 }
 </style>
