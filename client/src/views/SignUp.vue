@@ -4,13 +4,13 @@
     <div class="side-overlay --sm" style="z-index:2;">
       <figure style="position: absolute;bottom: 0;right: -40px;left:0;top:0;">
         <img
-          :src="require(`@/assets/images/saly-28.svg`)"
+          src="https://ucarecdn.com/8f38df99-ef0a-4540-b3d9-2986e5b3d46e/saly28.svg"
           class=""
           alt="floating_sally"
         >
         <img
           style="position: absolute;bottom: 0;left:0;animation-duration: 0s;"
-          :src="require(`@/assets/images/Saly-17.svg`)"
+          src="https://ucarecdn.com/2f9793a5-a019-41eb-8020-44ff177e3058/Saly17.svg"
           alt="floating_sally"
         >
       </figure>
