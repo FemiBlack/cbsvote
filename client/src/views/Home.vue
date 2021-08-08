@@ -14,6 +14,9 @@
           <p class="float float__three">
             site
           </p>
+          <p class="float float__three float__four">
+            2021
+          </p>
           <div class="circle circle_one" />
           <div class="circle circle_two" />
           <div class="circle circle_three" />
@@ -125,8 +128,19 @@ figure {
     left: 579px;
     top: 388px;
   }
+  .float__four {
+    font-size: 3.125rem;
+    left: 782px;
+    top: 450px;
+  }
   .float__one::after {
     width: 7em;
+  }
+  .float__three::after {
+    width: 181px;
+  }
+  .float__four::after {
+    width: 90px;
   }
   nav {
     padding: 10px;
