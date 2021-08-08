@@ -4,7 +4,7 @@
       <div class="side-overlay --sm" style="z-index:2;">
         <figure style="position: absolute;bottom: 0;right: -40px;">
           <img
-            :src="require(`@/assets/images/Saly-1.svg`)"
+            src="https://ucarecdn.com/aebdda3a-15d6-47a0-8f21-7def967d803c/Saly1.svg"
             class=""
             alt="floating_sally"
           >
