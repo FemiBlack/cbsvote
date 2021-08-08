@@ -73,7 +73,7 @@ export default {
 .cat_btn {
   cursor: pointer;
   position: absolute;
-  bottom: 0.625rem;
+  bottom: 2.625rem;
   left: 0.625rem;
   font-size: 0.75rem;
   line-height: 0.75rem;
