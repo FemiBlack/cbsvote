@@ -1,19 +1,29 @@
 <template>
-    <nav>
-        <div class="brand">
-            CBS
+    <div>
+        <div class="hamburg">
+            <div class="lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+                <span class="line line4"></span>
+            </div>
         </div>
-        <ul style="display: flex; justify-content: space-around;width: 50%;">
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/categories">Categories</router-link></li>
-            <li>
-                <a v-if="isLoggedIn" @click="logout" style="cursor:pointer;">Logout</a>
-                <router-link v-else to="/login">Login</router-link>
-            </li>
-            <li><router-link v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
-            <li><router-link v-if="isLoggedIn && user.role===2" to="/admin">Admin Panel</router-link></li>
-        </ul>
-    </nav>
+        <nav>
+            <div class="brand">
+                CBS
+            </div>
+            <ul style="display: flex; justify-content: space-around;width: 50%;">
+                <li><router-link to="/">Home</router-link></li>
+                <li><router-link to="/categories">Categories</router-link></li>
+                <li>
+                    <a v-if="isLoggedIn" @click="logout" style="cursor:pointer;">Logout</a>
+                    <router-link v-else to="/login">Login</router-link>
+                </li>
+                <li><router-link v-if="!isLoggedIn" to="/signup">Signup</router-link></li>
+                <li><router-link v-if="isLoggedIn && user.role===2" to="/admin">Admin Panel</router-link></li>
+            </ul>
+        </nav>
+    </div>
 </template>
 
 <script>
@@ -61,5 +71,53 @@ nav {
     width: 100%;
     justify-content: space-around;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.brand {
+    font-weight: bold;
+}
+@media only screen and (max-width: 47.5rem){
+    nav{
+        position: fixed;
+        z-index:100;
+        top:0;
+        left:0;
+        padding: 100px;
+        background-color: var(--blueTheme);
+        overflow-x: hidden;
+        transition: all 0.5s ease;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        flex-direction: column;
+    }
+    nav .brand {
+        text-align: center;
+    }
+    nav ul {
+        display: flex;
+        height: 80%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .hamburg {
+        cursor: pointer;
+        background-color: #fff;
+        padding: 20px;
+        width: 100%;
+        z-index: 999;
+        height: 10vh;
+    }
+    .line{
+        height: .1875rem;
+        width: 3.125rem;
+        display: block;
+        background-color: #000;
+        margin-top: .5rem;
+        /*create hamburger line*/
+    }
+    .line1{
+        width: 4.0625rem;
+    }
 }
 </style>
