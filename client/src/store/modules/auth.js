@@ -6,7 +6,7 @@ const state = {
   leads: null,
 };
 const getters = {
-  isAuthenticated: (state) => !!state.user,
+  isAuthenticated: (state) => !!state.user.id,
   StateLeads: (state) => state.leads,
   StateUser: (state) => state.user,
 };
