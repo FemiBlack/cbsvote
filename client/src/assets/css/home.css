@@ -29,7 +29,7 @@ main {
 .float {
   color: #fff;
   position: absolute;
-  font-family: Montserrat;
+  font-family: Montserrat, 'sans-serif';
   font-weight: bold;
   line-height: 56px;
 }
