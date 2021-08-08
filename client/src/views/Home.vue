@@ -22,13 +22,13 @@
         </div>
         <figure>
           <img
-            :src="require('@/assets/images/Saly-33.svg')"
+            src="https://ucarecdn.com/b46a9351-edb0-4982-87b8-d63199aa8108/Saly33.svg"
             width="380px"
             height="370px"
             alt="bob"
           >
           <img
-            :src="require('@/assets/images/Saly-35.svg')"
+            src="https://ucarecdn.com/0c495959-e10c-4845-86a8-4bcf4e2ee31d/Saly35.svg"
             alt="sally"
           >
         </figure>
