@@ -104,7 +104,7 @@ export default {
 
 <style scoped>
 #leads h1 {
-  padding: 1.875rem 0rem 1.25rem 3.75rem;
+  padding: 1.875rem 0rem 1.25rem 0.75rem;
   position: relative;
 }
 #leads h1::after {
@@ -115,7 +115,7 @@ export default {
   width: 6.25rem;
   bottom: 0;
   left: 0;
-  margin-left: 3.75rem;
+  margin-left: 0.75rem;
 }
 .lead-img {
   background-color: #777;
