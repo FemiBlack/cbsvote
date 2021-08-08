@@ -4,12 +4,12 @@
       <div
         class="side-overlay --sm"
         :style="
-          `background-image: url(${require('@/assets/images/nathan-anderson-9o-VrJSwGuw-unsplash.jpg')});width: calc(100% - 900px);`
+          `background-image: url("https://ucarecdn.com/bc9400a7-ac4c-4f2e-b048-e385f9e74d22/nathananderson9oVrJSwGuwunsplash.jpg");width: calc(100% - 900px);`
         "
       >
         <figure>
           <!-- <img
-            :src="require('@/assets/images/Saly-37.svg')"
+            src="https://ucarecdn.com/013781f1-b831-471a-ba6f-0c465a2bdfb3/Saly37.svg"
             style="position: absolute;bottom: 0;left: 0;animation-duration: 0;"
             alt="ball_point"
           /> -->
@@ -25,7 +25,7 @@
             <div class="lead-img"
             :style="{ backgroundImage: 'url(' +nominee.img+')' }"></div>
             <div class="lead-bottom">
-              <span class="lead-name">{{ nominee.name }}</span>
+              <span class="lead-name">{{ nominee.name.toUpperCase() }}</span>
               <span class="lead-category">{{ departments[nominee.department] }}</span>
               <div class="heart" v-if="!hasVoted" @click="Vote(nominee.id,nominee.name)">
                 <span><i class="feather-heart"></i> Vote</span>
