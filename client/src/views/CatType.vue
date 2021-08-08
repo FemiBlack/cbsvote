@@ -4,7 +4,7 @@
       <div
         class="side-overlay --sm"
         style="
-          background-image: url("https://ucarecdn.com/bc9400a7-ac4c-4f2e-b048-e385f9e74d22/nathananderson9oVrJSwGuwunsplash.jpg");width: calc(100% - 900px);
+          background-image: url('https://ucarecdn.com/bc9400a7-ac4c-4f2e-b048-e385f9e74d22/nathananderson9oVrJSwGuwunsplash.jpg');width: calc(100% - 900px);
         "
       >
         <figure>
