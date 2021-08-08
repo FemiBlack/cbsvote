@@ -152,4 +152,12 @@ export default {
   font-size: 1rem;
   padding: 1.25rem;
 }
+@media only screen and (min-width: 33.75rem) {
+  #leads h1{
+    padding-left: 3.75rem;
+  }
+  #leads h1::after{
+    margin-left: 0.75rem;
+  }
+}
 </style>
