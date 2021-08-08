@@ -111,16 +111,22 @@ figure {
     line-height: 0.75rem;
   }
   .float__one {
-    font-size: 3.125rem;
+    font-size: 6.125rem;
+    left: 144px;
+    top: 214px;
   }
   .float__two {
-    font-size: 3.125rem;
+    font-size: 7.125rem;
+    left: 496px;
+    top: 302px;
   }
   .float__three {
-    font-size: 3.125rem;
+    font-size: 5.125rem;
+    left: 579px;
+    top: 388px;
   }
   .float__one::after {
-    width: 14em;
+    width: 7em;
   }
   nav {
     padding: 10px;
