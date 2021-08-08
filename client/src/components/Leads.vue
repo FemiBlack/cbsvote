@@ -31,8 +31,8 @@ const catTypes = Object.freeze({
   fashionablefemale: 'Most Fashionable(female)',
   nextgenmale: 'CBS Next Gen(male)',
   nextgenfemale: 'CBS Next Gen(female)',
-  entreprenuermale: 'Entrepreneur of the year(male)',
-  entreprenuerfemale: 'Entrepreneur of the year(female)',
+  entrepreneurmale: 'Entrepreneur of the year(male)',
+  entrepreneurfemale: 'Entrepreneur of the year(female)',
   facemale: 'Face of CBS(male)',
   facefemale: 'Face of CBS(female)',
   sociablemale: 'Most Sociable(male)',
@@ -130,7 +130,7 @@ export default {
   display: grid;
   /* grid-template-columns: repeat(auto-fill, minmax(calc(10% + 7.5rem), 1fr)); */
   /* grid-template-columns: repeat(auto-fit, minmax(min(10rem, 100%), 1fr)); */
-  grid-template-columns: repeat(auto-fit, 350px);
+  grid-template-columns: 1fr;
   gap: 1.25rem;
 }
 .lead-card {
