@@ -116,8 +116,8 @@ nav {
         margin-top: .5rem;
         /*create hamburger line*/
     }
-    .line1{
+    /*.line1{
         width: 4.0625rem;
-    }
+    }*/
 }
 </style>
