@@ -1,4 +1,13 @@
 <template>
+    <div>
+        <div class="hamburg">
+            <div class="lines">
+                <span class="line line1"></span>
+                <span class="line line2"></span>
+                <span class="line line3"></span>
+                <span class="line line4"></span>
+            </div>
+        </div>
         <nav>
             <div class="brand">
                 CBS
@@ -14,6 +23,7 @@
                 <li><router-link v-if="isLoggedIn && user.role===2" to="/admin">Admin Panel</router-link></li>
             </ul>
         </nav>
+        </div>
 </template>
 
 <script>
