@@ -60,6 +60,13 @@ main {
           transform-style: preserve-3d;
 }
 
+.float__four {
+  left: 215px;
+  top: 308px;
+  font-size: 30px;
+  transform-style: preserve-3d;
+}
+
 .float__three::after {
   content: '';
   position: absolute;
