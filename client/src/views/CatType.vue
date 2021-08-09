@@ -125,12 +125,12 @@ export default {
         });
     },
     Vote(nomID, name) {
-        if (this.user_id === null || this.role < 3) {
+        if (this.user.id === null || this.user.role < 3) {
             swal(
               "Sorry",
-              "You just need to login or You can't vote as an admin",
+              "You need to login to vote",
               "error"
-            );
+            ).then(this.$router.push("/login"));
       } else if (this.hasVoted) {
         Swal.fire("🤗", 'Can\'t vote twice buddy', "info");
         return 0;
