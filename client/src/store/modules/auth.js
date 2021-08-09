@@ -2,7 +2,11 @@ import axios from 'axios';
 import 'sweetalert2/dist/sweetalert2.min.css';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
-  user: {},
+  user: {
+    id: null,
+    email: null,
+    role: null
+  },
   leads: null,
 };
 const getters = {
