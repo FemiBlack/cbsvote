@@ -166,7 +166,7 @@ export default {
       this.checkVote()
     },
     checkVote() {
-        if(this.user_id !=== null) {
+        if(this.user_id !== null) {
             axios.get(`/api/getuser/${this.user.id}`, {
                 headers: {
                   Authorization: `Bearer ${localStorage.getItem('token')}`,
