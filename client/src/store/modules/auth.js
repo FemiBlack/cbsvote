@@ -2,11 +2,7 @@ import axios from 'axios';
 import 'sweetalert2/dist/sweetalert2.min.css';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
-  user: {
-    id: null,
-    email: null,
-    role: null
-  },
+  user: {},
   leads: null,
 };
 const getters = {
@@ -59,7 +55,7 @@ const actions = {
     // commit('SET_PRODUCTS', { products: res.data, houseID });
   },
   async LogOut({ commit }) {
-    const user = null;
+    const user = {};
     commit('logout', user);
   },
 };
@@ -77,7 +73,7 @@ const mutations = {
     state.houses = houses.id;
   },
   logout(state) {
-    state.user = null;
+    state.user = {};
     // state.houses = null;
   },
 };
