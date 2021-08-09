@@ -125,16 +125,15 @@ export default {
         });
     },
     Vote(nomID, name) {
-      if (this.hasVoted) {
+        if (this.user_id === null || this.role < 3) {
+            swal(
+              "Sorry",
+              "You just need to login or You can't vote as an admin",
+              "error"
+            );
+      } else if (this.hasVoted) {
         Swal.fire("🤗", 'Can\'t vote twice buddy', "info");
         return 0;
-      }
-      if (this.user_id === null || this.role < 3) {
-        swal(
-          "Sorry",
-          "You just need to login or You can't vote as an admin",
-          "error"
-        );
       } else {
         var vote = {
           name: name,
@@ -167,15 +166,17 @@ export default {
       this.checkVote()
     },
     checkVote() {
-      axios.get(`/api/getuser/${this.user.id}`, {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem('token')}`,
-            },})
-      .then((res)=>{
-        let resArray = res.data[0].voted_for;
-        this.hasVoted = Boolean(resArray.filter(x => x === this.cat_type).length);
-      })
-    }
+        if(this.user_id !=== null) {
+            axios.get(`/api/getuser/${this.user.id}`, {
+                headers: {
+                  Authorization: `Bearer ${localStorage.getItem('token')}`,
+                },})
+          .then((res)=>{
+            let resArray = res.data[0].voted_for;
+            this.hasVoted = Boolean(resArray.filter(x => x === this.cat_type).length);
+          })
+        }
+      }
   },
   created() {
     this.getTypes();
