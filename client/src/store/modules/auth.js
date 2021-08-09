@@ -3,9 +3,9 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
   user: {
-    id: null,
-    email: null,
-    role: null
+    id: '',
+    email: '',
+    role: ''
   },
   leads: null,
 };
