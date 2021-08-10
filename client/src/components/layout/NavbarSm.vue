@@ -81,14 +81,17 @@ nav {
         z-index:100;
         top:0;
         left:0;
-        padding: 100px;
+        padding: 0px;
         background-color: var(--blueTheme);
         overflow-x: hidden;
         transition: all 0.5s ease;
         display: flex;
-        width: 100%;
+        width: 0px;
         justify-content: space-around;
         flex-direction: column;
+        align-items: center;
+        opacity: 0.95;
+        height: 100%;
     }
     nav .brand {
         text-align: center;
@@ -100,13 +103,19 @@ nav {
         align-items: center;
         justify-content: space-between;
     }
+    a {
+        color: white;
+    }
     .hamburg {
-        cursor: pointer;
         background-color: #fff;
         padding: 20px;
         width: 100%;
-        z-index: 999;
         height: 10vh;
+    }
+    .lines {
+        z-index: 999;
+        cursor: pointer;
+        position: absolute;
     }
     .line{
         height: .1875rem;
