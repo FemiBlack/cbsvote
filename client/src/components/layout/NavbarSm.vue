@@ -44,7 +44,7 @@ export default {
         },
         navSize(){
             return {
-                '--size': this.size,
+                '--size': this.size + '%',
             }
         }
     },
