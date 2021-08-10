@@ -131,7 +131,7 @@ nav {
     }
     .line{
         height: .1875rem;
-        width: 3.125rem;
+        width: 2.6rem;
         display: block;
         background-color: #000;
         margin-top: .3rem;
