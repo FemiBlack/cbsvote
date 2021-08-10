@@ -10,7 +10,7 @@ const state = {
   leads: null,
 };
 const getters = {
-  isAuthenticated: (state) => state.user['id'] ?true:false,
+  isAuthenticated: (state) => !!state.user.id,
   StateLeads: (state) => state.leads,
   StateUser: (state) => state.user,
 };
