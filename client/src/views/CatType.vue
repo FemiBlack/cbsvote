@@ -15,7 +15,7 @@
           /> -->
         </figure>
       </div>
-      <NavSm />
+      <NavSm size="66.7"/>
       <main>
         <h1 style="padding-left: 50px;padding-top: 100px;background:white;">
         {{ catTypes[cat_type].toUpperCase() }}
