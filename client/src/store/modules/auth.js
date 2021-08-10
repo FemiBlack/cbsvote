@@ -2,7 +2,11 @@ import axios from 'axios';
 import 'sweetalert2/dist/sweetalert2.min.css';
 /* eslint no-shadow: ["error", { "allow": ["state"] }] */
 const state = {
-  user: {},
+  user: {
+      id: null,
+      email: null,
+      role: null,
+  },
   leads: null,
 };
 const getters = {
@@ -15,10 +19,11 @@ const actions = {
     localStorage.setItem('token', payload.res.data.token);
     const role = parseInt(payload.res.data.role, 10);
     const userData = {
-      'id': payload.res.data.id,
-      'email': payload.User.email,
-      'role': role,
+      id: payload.res.data.id,
+      email: payload.User.email,
+      role: role,
     };
+    console.log(userData);
     await commit('setUser', userData);
   },
   async CreateNominee({ dispatch }, nominee) {
@@ -61,10 +66,9 @@ const actions = {
 };
 const mutations = {
   setUser(state, payload) {
-    state.user = payload;
-  },
-  setHouse(state, house) {
-    state.house = house;
+    state.user['id'] = payload.id;
+    state.user['email'] = payload.email;
+    state.user['role'] = payload.role;
   },
   setAllHouses(state, houses) {
     state.houses = houses;
