@@ -448,11 +448,11 @@ button:hover {
 		color: var(--blueTheme);
 	}
 	
-	.container-login100-form-btn p{
+/* 	.container-login100-form-btn p{
 		position: absolute;
 		top: 6.25rem;
 		left: 4.375rem;
-	}
+	} */
 	.input100 {
 		/*  */
 		font-family: Poppins, sans-serif;
