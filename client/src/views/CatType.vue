@@ -263,6 +263,11 @@ ul li a {
 @media only screen and (max-width:760px){
     .wrap-login{
         grid-template-columns: 1fr;
+        padding: 25px;
+        width: auto;
+    }
+    h1 {
+        padding-top: 65px;
     }
 }
 </style>
