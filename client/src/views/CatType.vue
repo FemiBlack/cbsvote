@@ -130,7 +130,7 @@ export default {
               "Sorry",
               "You need to login to vote",
               "error"
-            ).then(this.$router.push("/login"));
+            );
       } else if (this.hasVoted) {
         Swal.fire("🤗", 'Can\'t vote twice buddy', "info");
         return 0;
