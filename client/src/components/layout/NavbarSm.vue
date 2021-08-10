@@ -8,7 +8,7 @@
                 <span class="line line4"></span>
             </div>
         </div>
-        <nav :class="{show:isSidebar}">
+        <nav :class="{show:isSidebar}" :style="navSize">
             <div class="brand">
                 CBS
             </div>
@@ -29,6 +29,9 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+    props: {
+        size: Number,
+    },
     data(){
         return {
             isSidebar: false,
@@ -39,6 +42,11 @@ export default {
         isLoggedIn() {
             return this.$store.getters.isAuthenticated;
         },
+        navSize(){
+            return {
+                '--size': this.size,
+            }
+        }
     },
     methods: {
         async logout() {
@@ -77,7 +85,7 @@ nav {
     padding-bottom: 20px;
     background-color: white;
     display: flex;
-    width: 100%;
+    width: var(--size)%;
     justify-content: space-around;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
 }
