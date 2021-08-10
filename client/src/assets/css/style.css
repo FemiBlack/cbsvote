@@ -412,6 +412,7 @@ button:hover {
   .wrap-login {
     padding-left: .9375rem;
     padding-right: .9375rem;
+    width:auto;
   }
 }
 @media only screen and (max-width: 47.5rem){
