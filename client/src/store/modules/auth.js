@@ -60,7 +60,11 @@ const actions = {
     // commit('SET_PRODUCTS', { products: res.data, houseID });
   },
   async LogOut({ commit }) {
-    const user = {};
+    const user = {
+      id: null,
+      email: null,
+      role: null
+    };
     commit('logout', user);
   },
 };
@@ -76,8 +80,8 @@ const mutations = {
   setDeleteNominee(state, houses) {
     state.houses = houses.id;
   },
-  logout(state) {
-    state.user = {};
+  logout(state, user) {
+    state.user = user;
     // state.houses = null;
   },
 };
