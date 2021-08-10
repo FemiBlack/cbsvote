@@ -128,7 +128,7 @@ nav{
 	padding-left: .9375rem;
 	width:auto;
     }
-    h1{
+    main h1{
     	padding-left:90px;
     }
 }
