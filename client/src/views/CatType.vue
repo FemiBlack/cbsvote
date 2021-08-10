@@ -38,7 +38,7 @@
           </div>
         </div>
         <div class="lead-container" v-else>
-          <p>No nominees have been added under this category...</p>
+          <p>Loading...</p>
         </div>
       </main>
     </section>
