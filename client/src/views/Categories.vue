@@ -16,7 +16,7 @@
           />
         </figure>
       </div>
-      <NavSm />
+      <NavSm size="66.7"/>
       <main>
         <h1>Categories</h1>
 			  <div class="wrap-login">
