@@ -125,7 +125,7 @@ export default {
         });
     },
     Vote(nomID, name) {
-        if (this.user.id === null || this.user.role < 3) {
+        if (this.user.id === null) {
             Swal.fire(
               "Sorry",
               "You need to login to vote",
