@@ -60,9 +60,9 @@ export default {
     Leads,
     NavbarSm,
   },
-  mounted(){
-    Swal.fire('Man At Work!🔨🚧👷‍♂️', 'This site is currently under maintenance', 'info');
-  }
+  // mounted(){
+  //  Swal.fire('Man At Work!🔨🚧👷‍♂️', 'This site is currently under maintenance', 'info');
+  // }
 };
 </script>
 
