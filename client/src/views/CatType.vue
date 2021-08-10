@@ -17,7 +17,7 @@
       </div>
       <NavSm />
       <main>
-        <h1 style="padding-left: 50px;padding-top: 100px;background:white;">
+        <h1 style="padding-left: 25px;padding-top: 100px;background:white;">
         {{ catTypes[cat_type].toUpperCase() }}
         </h1>
         <div class="wrap-login" v-if="nominees[0]">
