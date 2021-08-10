@@ -75,10 +75,14 @@ nav {
     padding-left: 50px;
     padding-top: 20px;
     padding-bottom: 20px;
+    background-color: white;
     display: flex;
     width: 100%;
     justify-content: space-around;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+ul{
+    z-index: 5;
 }
 .brand {
     font-weight: bold;
