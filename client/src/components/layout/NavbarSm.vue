@@ -85,7 +85,7 @@ nav {
     padding-bottom: 20px;
     background-color: white;
     display: flex;
-    width: var(--size)%;
+    width: var(--size);
     justify-content: space-around;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
 }
