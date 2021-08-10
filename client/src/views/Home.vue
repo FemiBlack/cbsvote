@@ -1,6 +1,6 @@
 <template>
 <div>
-    <NavbarSm size="100"/>
+    <NavbarSm size="100" zindex="auto"/>
   <div class="container">
     <div class="limiter">
       <main>
