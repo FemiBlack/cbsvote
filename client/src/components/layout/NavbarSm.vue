@@ -31,6 +31,10 @@ import { mapGetters } from 'vuex';
 export default {
     props: {
         size: Number,
+        zindex: {
+            type: String,
+            default: "5",
+        }
     },
     data(){
         return {
@@ -45,6 +49,7 @@ export default {
         navSize(){
             return {
                 '--size': this.size + '%',
+                '--index': this.zindex
             }
         }
     },
@@ -85,6 +90,7 @@ nav {
     padding-bottom: 20px;
     background-color: white;
     display: flex;
+    z-index: var(--index);
     width: var(--size);
     justify-content: space-around;
     box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
