@@ -1,6 +1,6 @@
 <template>
 <div>
-    <NavbarSm />
+    <NavbarSm size="100"/>
   <div class="container">
     <div class="limiter">
       <main>
