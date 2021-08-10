@@ -10,7 +10,7 @@
           >
         </figure>
       </div>
-      <NavSm />
+      <NavSm size="56.4"/>
       <main>
       <div class="wrap-login">
         <form
