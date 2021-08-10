@@ -18,7 +18,7 @@
       </div>
       <NavSm />
       <main>
-        <h1 style="padding-left: 130px;padding-top: 100px;">Categories</h1>
+        <h1>Categories</h1>
 			  <div class="wrap-login" style="padding-left: 130px;">
           <div v-for="(category, name) in categories" :key="name"  class="cat-border">
             <router-link :to="{name: 'CatType', params: {cat_type: name}}" class="cat-name">
@@ -64,6 +64,10 @@ export default {
 };
 </script>
 <style scoped>
+main h1{
+padding-left: 130px;
+padding-top: 100px;
+}
 main h1::after {
   content: "";
   position: absolute;
