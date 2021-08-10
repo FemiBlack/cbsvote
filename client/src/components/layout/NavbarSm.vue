@@ -1,14 +1,14 @@
 <template>
     <div>
         <div class="hamburg">
-            <div class="lines">
+            <div class="lines" @click="toggleSidebar()">
                 <span class="line line1"></span>
                 <span class="line line2"></span>
                 <span class="line line3"></span>
                 <span class="line line4"></span>
             </div>
         </div>
-        <nav>
+        <nav :class="{show:isSidebar}">
             <div class="brand">
                 CBS
             </div>
@@ -29,6 +29,11 @@
 <script>
 import { mapGetters } from 'vuex';
 export default {
+    data(){
+        return {
+            isSidebar: false,
+        }
+    },
     computed: {
         ...mapGetters({ user: "StateUser" }),
         isLoggedIn() {
@@ -40,6 +45,9 @@ export default {
             await this.$store.dispatch("LogOut");
             this.$router.push("/");
         },
+        toggleSidebar() {
+            this.isSidebar = !this.isSidebar
+        }
     }
 }
 </script>
@@ -74,6 +82,10 @@ nav {
 }
 .brand {
     font-weight: bold;
+}
+.show {
+    padding: 100px;
+    width: 100%;
 }
 @media only screen and (max-width: 47.5rem){
     nav{
@@ -122,7 +134,7 @@ nav {
         width: 3.125rem;
         display: block;
         background-color: #000;
-        margin-top: .5rem;
+        margin-top: .3rem;
         /*create hamburger line*/
     }
     /*.line1{
