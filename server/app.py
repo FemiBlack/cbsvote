@@ -34,7 +34,7 @@ mail = Mail(app)
 initialize_db(app)
 initialize_routes(api)
 
-CORS(app, resources={r'/*': {'origins': '*'}})
+CORS(app, resources={r'/api/': {'origins': 'https://cbsvote.herokuapp.com'}})
 app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route('/')
