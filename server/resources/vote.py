@@ -14,29 +14,28 @@ class VotingApi(Resource):
     def post(self):
         try:
             user_id = get_jwt_identity()
-            body = request.get_json()
-            vote = Vote(**body)
-            vote.save()
-            
-            data = request.get_json()
-            nominee = Nominee.objects(id=data['nominee_id'],category__name=data['category'])
-            # print(nominee)
-            # nominee.update(inc__category__S__votes=1)
-            nominee.update_one(__raw__={'$inc': {'category.$.votes':1}},
-            )
-            # nominee.save()
-
             user = User.objects.get(id=user_id)
-            user.update(push__voted_for=data['category'])
-            user.save()
-            id = vote.id
-            return {'id':str(id)}, 200
-        except (FieldDoesNotExist, ValidationError):
-            raise SchemaValidationError
-        except NotUniqueError:
-            raise MovieAlreadyExistsError
-        except Exception as e:
-            raise InternalServerError
+            body = request.get_json()
+            if body['category'] not in user.voted_for:
+                vote = Vote(**body)
+                vote.save()
+
+                nominee = Nominee.objects(id=body['nominee_id'],category__name=body['category'])
+                nominee.update_one(__raw__={'$inc': {'category.$.votes':1}},
+                )
+
+                user.update(push__voted_for=body['category'])
+                user.save()
+                id = vote.id
+                return {'id':str(id)}, 200
+                except (FieldDoesNotExist, ValidationError):
+                    raise SchemaValidationError
+                except NotUniqueError:
+                    raise MovieAlreadyExistsError
+                except Exception as e:
+                    raise InternalServerError
+            else:
+                return { 'message':'Can\'t vote twice buddy!' }, 200
 
 class GetCategoryApi(Resource):
     def get(self, type):
