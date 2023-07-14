@@ -19,6 +19,11 @@ Run app in development mode
 source ./env/bin/activate
 py -m app.py
 ```
+Run app in production mode (`env/` being virtual env directory)
+```
+source ./env/bin/activate
+npm start
+```
 
 ### Compiles and hot-reloads for development
 ```
